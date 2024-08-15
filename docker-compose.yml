@@ -2,7 +2,9 @@
 services:
   recursoshumanos:
     container_name: recursoshumanos-servicio
-    build: recursoshumanos-servicio
+    build:
+      context: ./recursoshumanos-servicio
+      dockerfile: Dockerfile
     mem_limit: 512m
     ports:
       - "8080:8080"
@@ -26,7 +28,9 @@ services:
       retries: 10
   recursoshumanos-cliente:
     container_name: recursoshumanos-cliente
-    build: recursoshumanos-cliente
+    build:
+      context: ./recursoshumanos-cliente
+      dockerfile: Dockerfile
     ports:
       - "3000:80"
     restart: always
