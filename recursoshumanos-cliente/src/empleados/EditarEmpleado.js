@@ -1,9 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-export default function AgregarEmpleado() {
+export default function EditarEmpleado() {
     let navegacion = useNavigate();
+    const urlBase = "http://localhost:8080/api/rh/empleado";
+
+    const {id} = useParams();
 
     const [empleado,setEmpleado] = useState({
         nombre : "",
@@ -14,20 +17,29 @@ export default function AgregarEmpleado() {
     const {nombre, departamento, sueldo} = empleado;
 
     const onInputChange = (evento) =>{
-        setEmpleado({...empleado, [evento.target.name]: evento.target.value})
+      setEmpleado({...empleado, [evento.target.name]: evento.target.value})
     }
 
     const onSubmit = async (evento) => {
         evento.preventDefault();
-        const urlBase = "http://localhost:8080/api/rh/empleado";
-        await axios.post(urlBase, empleado);
+        
+        await axios.put(`${urlBase}/${id}}`, empleado);
         navegacion('/')
+    }
+
+    useEffect(()=>{
+      cargarEmpleado(id);
+    },[])
+
+    const cargarEmpleado = async () =>{
+      const resultado = await axios.get(`${urlBase}/${id}`);
+      setEmpleado(resultado.data);
     }
 
   return (
     <div className="container">
       <div className="container text-center" style={{ margin: "30px" }}>
-        <h3>Agregar Empleado</h3>
+        <h3>Editar Empleado</h3>
       </div>
       <form onSubmit={(evento) => onSubmit(evento)}>
         <div className="mb-3">
@@ -43,7 +55,7 @@ export default function AgregarEmpleado() {
             <input type="number" className="form-control" id="sueldo" name="sueldo"  required={true} value={sueldo} onChange={(evento) => onInputChange(evento)}/>
         </div>
         <div className="text-center">
-            <button type="submit" className="btn btn-warning btn-sm me-3">Agregar</button>
+            <button type="submit" className="btn btn-warning btn-sm me-3">Guardar</button>
             <Link  to="/" className="btn btn-danger btn-sm">Regresar</Link>
         </div>
         </form>
