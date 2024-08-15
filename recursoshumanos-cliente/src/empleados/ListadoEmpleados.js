@@ -18,7 +18,8 @@ export default function ListadoEmpleados() {
     <div className="container">
       <div className="container text-center" style={{ margin: "30px" }}>
         <h3>Sistema de Recursos Humanos</h3>
-        <table className="table table-striped table-hover aling-middle">
+      </div>
+      <table className="table table-striped table-hover aling-middle">
           <thead className="table-dark">
             <tr>
               <th scope="col">Id</th>
@@ -50,7 +51,6 @@ export default function ListadoEmpleados() {
             }
           </tbody>
         </table>
-      </div>
     </div>
   );
 }
