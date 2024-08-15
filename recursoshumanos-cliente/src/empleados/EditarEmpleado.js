@@ -23,7 +23,7 @@ export default function EditarEmpleado() {
     const onSubmit = async (evento) => {
         evento.preventDefault();
         
-        await axios.put(`${urlBase}/${id}}`, empleado);
+        await axios.put(`${urlBase}/${id}`, empleado);
         navegacion('/')
     }
 
