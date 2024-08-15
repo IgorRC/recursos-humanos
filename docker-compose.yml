@@ -1,6 +1,7 @@
 
 services:
   recursoshumanos:
+    container_name: recursoshumanos-servicio
     build: recursoshumanos-servicio
     mem_limit: 512m
     ports:
@@ -8,8 +9,9 @@ services:
     restart: always
     depends_on:
       db-recursoshumanos:
-        condition: service_healthy    
+        condition: service_healthy   
   db-recursoshumanos:
+    container_name: recursoshumanos-db
     image: mysql:8.0.33
     ports:
       - "3307:3306"
@@ -22,3 +24,11 @@ services:
       test: ["CMD","mysqladmin","ping","-h","localhost"]
       timeout: 10s
       retries: 10
+  recursoshumanos-cliente:
+    container_name: recursoshumanos-cliente
+    build: recursoshumanos-cliente
+    ports:
+      - "3000:80"
+    restart: always
+    depends_on:
+      - recursoshumanos
