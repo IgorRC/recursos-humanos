@@ -10,22 +10,12 @@ Este proyecto consta de dos componentes principales:
 
 2. **Backend (Servidor):** Desarrollado con Spring Boot, el backend maneja la lógica de negocio, la gestión de datos y la interacción con la base de datos. También proporciona una API RESTful que facilita la comunicación entre el frontend y el backend.
 
-### Características Principales
-
-- **Gestión de Empleados:** Registra y administra la información de los empleados, incluyendo datos personales, contratos, y roles dentro de la organización.
-- **Gestión de Nóminas:** Calcula y administra las nóminas de los empleados, incluyendo deducciones, bonificaciones, y beneficios.
-- **Seguimiento de Rendimiento:** Permite a los gerentes realizar evaluaciones de desempeño, establecer metas y realizar seguimientos.
-- **Portal de Empleados:** Un espacio donde los empleados pueden consultar sus datos personales, revisar su historial de nómina, y acceder a documentos importantes.
-- **Panel de Administración:** Herramientas para los administradores del sistema, incluyendo la gestión de usuarios, generación de reportes, y configuración del sistema.
-
 ## Estructura del Proyecto
 
 El proyecto está organizado en las siguientes carpetas principales:
 
 - `/cliente`: Contiene el código fuente del frontend desarrollado en React.
 - `/servidor`: Contiene el código fuente del backend desarrollado en Spring Boot.
-- `/docs`: Documentación adicional, incluyendo diagramas de arquitectura y especificaciones técnicas.
-- `/config`: Archivos de configuración para el entorno de desarrollo y producción.
 
 ## Requisitos del Sistema
 
@@ -35,6 +25,7 @@ Para ejecutar este proyecto en tu entorno local, necesitarás tener instalados l
 - **Java 17** y **Maven** para el backend.
 - **MySQL**.
 - **IntelliJ IDEA** (opcional, recomendado para el desarrollo backend).
+- **Docker** para ejecutar el proyecto 
 
 ## Instalación y Configuración
 
@@ -42,3 +33,25 @@ Para ejecutar este proyecto en tu entorno local, necesitarás tener instalados l
 
 ```bash
 https://github.com/IgorRC/recursos-humanos.git
+```
+
+### 2. Prueba localmente en Docker
+
+```bash
+docker-compose up --build
+```
+
+### 3. Acceder a las aplicaciones
+
+- Servidor : http://localhost:8080
+
+- Cliente : http://localhost:3000
+
+### 4. Capturas del sistema
+
+Home/
+[![1.jpg](https://i.postimg.cc/nzWcSh79/1.jpg)](https://postimg.cc/k6xmB9T7)
+
+Agregar/
+[![2.jpg](https://i.postimg.cc/WbggZBLw/2.jpg)](https://postimg.cc/BXZj9wvj)
+
