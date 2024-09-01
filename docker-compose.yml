@@ -11,7 +11,9 @@ services:
     restart: always
     depends_on:
       db-recursoshumanos:
-        condition: service_healthy   
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: prod   
   db-recursoshumanos:
     container_name: recursoshumanos-db
     image: mysql:8.0.33
