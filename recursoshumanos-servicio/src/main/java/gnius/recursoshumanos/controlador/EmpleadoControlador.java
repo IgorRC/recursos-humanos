@@ -19,7 +19,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("api/rh")
 @CrossOrigin(value = "http://localhost:3000")
-public class EmpleadoControlador {
+public class    EmpleadoControlador {
 
     private static final Logger logger= LoggerFactory.getLogger(EmpleadoControlador.class);
 
